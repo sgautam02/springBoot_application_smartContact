@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+
+    
+    <meta charset="UTF-8">
+    <title th:text="${title}">home</title>
+</head>
+<body>
+    <section class="banner d-flex justify-content-center align-items-center">
+        <div class="center-content text-center">
+            <h1 class="font-weight-bold text-white">Smart Contect</h1>
+            <div class="container text-white">
+                <p>
+                    Are you tired of losing important contacts, 
+                    struggling to organize them, or constantly updating your phonebook? 
+                    Look no further! SaveMate is the ultimate contact-saving application 
+                    designed to simplify and enhance your contact management experience.
+                </p>
+                <a href="#" th:href="@{/login}" class="btn btn-primary">Get Start</a>
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>

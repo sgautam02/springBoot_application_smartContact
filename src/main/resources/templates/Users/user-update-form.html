@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title th:text="${title}">this is registration </title>
+
+</head>
+<body>
+    <section>
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card mb-5">
+                        <div class="card-header "><div class="d-flex justify-content-center font-weight-bold ">Update Profile</div>  
+    
+                        </div>
+                        <div class="card-body">
+                            <form novalidate th:action="@{/updated-user-profile}" method="POST" th:object="${user}" enctype="multipart/form-data">
+                                <div class="mb-2">
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" class="form-control" th:classappend="${#fields.hasErrors('name')?'is-invalid':''}"
+                                           id="name" name="name" th:value="${user.name}" required>
+                                </div>
+                            
+                                <!-- Work -->
+                                <div class="mb-3">
+                                    <label class="form-label" for="role">Work Title</label>
+                                    <input type="text" class="form-control" id="role" name="role" th:value="${user.role}">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Profile Picture</label>
+                                    <input type="file" class="form-control" name="profileImage">
+                                </div>
+                                <div class="mb-2">
+                                    <label for="description" class="form-label">Description</label>
+                                    <textarea class="form-control" id="description" name="about" rows="3" th:text="${user.about}"></textarea>
+                                </div>
+                            
+                                <div class="mb-2 d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                                </div>
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Add Bootstrap JS (optional) -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.bundle.min.js"></script> -->
+    
+    </section>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{Users/base::layout(~{::section})}">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title th:text="${title}">about </title>
+</head>
+
+<body>
+    <section>
+        <div class="card mt-5 mr-3 contact-card">
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">email</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr th:each="c:${contact}">
+                        <th scope="row" th:text="${c.id}">1</th>
+                        <td th:text="${c.name}">Mark </td>
+                        <td th:text="${c.phone}">Mark</td>
+                        <td th:text="${c.email}">Mark</td>
+                       <td>
+                          <a th:href="@{'/delete-contact/'+${c.id}}" type="button" class="btn btn-danger btn-sm">Delete</a>
+                          <a th:href="@{'/update-contact/'+${c.id}}"type="button" class="btn btn-primary btn-sm">Update</a>
+                          <a th:href="@{'/view-detail/'+${c.id}}" type="button"class="btn btn-primary btn-sm">View</a>
+                        </td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
